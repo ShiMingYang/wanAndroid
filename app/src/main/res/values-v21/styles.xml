@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/toolbars</item>
+        <item name="colorPrimaryDark">@color/toolbars</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/alpha</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+         隐藏状态栏
+        <item name="android:windowFullscreen">true</item>
+        <!-- 隐藏标题栏 -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="namess">
+        <item name="android:colorControlNormal">#ffffff</item>
+    </style>
+
+
+</resources>

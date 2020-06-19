@@ -1,0 +1,187 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        flavorDimensions "default"
+        applicationId "com.example.dell.big_wanandroid"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('key0')
+            storePassword "111111"
+            keyAlias "D:/SmallPrincess_WorkSpace/Big_WanAndroid/app/asd.jks"
+            keyPassword "111111"
+        }
+    }
+
+    defaultConfig {
+  //瘦身  只支持中文
+        resConfigs "zh"
+
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+
+    }
+
+    productFlavors {
+        zi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zi"]
+        }
+
+    }
+
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.example.dell.big_wanandroid.dao'  //数据库全路径
+        targetGenDir 'src/setting/java'  //存放位置
+    }
+
+//    signingConfigs {
+//        debug {
+//            storeFile file('debug.keystore')
+//            storePassword "android"
+//            keyAlias "androiddebugkey"
+//            keyPassword "android"
+//        }
+//    }
+
+
+    android {
+        sourceSets {
+            main.jniLibs.srcDirs = ['libs'] //腾讯Bugly
+        }
+    }
+
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:design:28.0.0'
+
+
+    implementation 'com.tencent.bugly:crashreport:latest.release'//腾讯Bugly
+
+    implementation 'org.greenrobot:greendao:3.2.2'
+
+    //SlidingTabLayout 滑动tab时候的动画
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    //这个是开屏动画动图依赖
+    implementation 'com.airbnb.android:lottie:1.0.1'
+    //流式布局依赖s
+    implementation "com.hyman:flowlayout-lib:1.1.2"
+    //JiaoZi播放器支持，清晰度切换，倍速播放
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.7'
+    //ijk播放器
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.4'
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.4'
+
+    //tollbar依赖：
+
+    //搜索框
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //recyclerview：
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    //最新版本
+
+    // 1.5.9 is the setting,记得这个需要添加design依赖,如果不加它会添加23.4.0依赖
+    implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
+
+    //xrecyclerview
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+
+    //CardView
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    //glide图片加载框架
+
+    //图片变换的依赖
+    implementation 'jp.wasabeef:glide-transformations:3.3.0'
+    implementation 'com.alibaba:fastjson:1.1.54.android'
+
+    //fastjson：
+
+    //ok
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+
+    //RxJava  上传文件的参数  application/octet-stream
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    //硬盘缓存
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+
+    //SmartRefreshLayout上拉加载下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
+
+    //没有使用特殊Header，可以不加这行
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //搜索框
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    //日历
+    implementation 'com.prolificinteractive:material-calendarview:1.4.3'
+
+    //jsoup 解析html数据
+    implementation 'org.jsoup:jsoup:1.11.3'
+
+    //粘性头部/悬浮头部
+    implementation 'com.github.qdxxxx:StickyHeaderDecoration:1.0.1'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    //    垂直纵向的TabLayout
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
+    //检测内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    implementation 'com.android.support:multidex:1.0.3'
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/it1"
+        android:checkable="true"
+        
+        android:icon="@drawable/icon_home_pager_selected"
+        android:title="@string/wanandroid" />
+    <item
+        android:id="@+id/it2"
+        android:checkable="true"
+        android:icon="@drawable/follow"
+        android:title="@string/collect" />
+    <item
+        android:id="@+id/it3"
+        android:checkable="true"
+        android:icon="@drawable/icon_settings"
+        android:title="@string/setting" />
+    <item
+        android:id="@+id/it4"
+        android:checkable="true"
+        android:icon="@drawable/ic_information"
+        android:title="@string/main" />
+
+</menu>

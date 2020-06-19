@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/it2"
+        android:icon="@mipmap/follow_unselected"
+        app:showAsAction="always"
+        android:title="@string/collect"/>
+    <item
+        android:id="@+id/it11"
+        android:icon="@mipmap/share"
+        android:title="@string/share"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/it22"
+        android:icon="@mipmap/ic_action_browser"
+        android:title="@string/inet"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+    <q.rorbin.verticaltablayout.VerticalTabLayout
+        android:id="@+id/tab"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:scrollIndicators="bottom"
+        android:fitsSystemWindows="true"
+        app:indicator_corners="5dp"
+        app:indicator_width="2dp"
+        app:tabSelectedTextColor="@color/white"
+        android:background="@color/cececce"
+        app:indicator_color="@color/white"
+        app:indicator_gravity="left"
+        app:tab_height="50dp"
+        app:tab_mode="scrollable" />
+
+   <!-- <com.example.dell.big_wanandroid.move.vpFragmentTeam.VerticalPagerager
+        android:id="@+id/vp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4" >
+  com.example.dell.big_wanandroid.move.vpFragmentTeam.VerticalPagerager>&ndash;&gt;-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"/>
+  </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/flbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/xuanfu"
+        app:backgroundTint="@color/blue"
+        android:layout_marginBottom="68dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:layout_anchorGravity="end|bottom" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+     <com.scwang.smartrefresh.layout.SmartRefreshLayout
+         android:id="@+id/smr"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         <com.scwang.smartrefresh.header.TaurusHeader
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
+
+         <android.support.v7.widget.RecyclerView
+             android:id="@+id/rlv"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
+     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/flbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/xuanfu"
+            app:backgroundTint="@color/blue"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="68dp"
+            android:layout_marginRight="40dp"
+            app:layout_anchorGravity="end|bottom" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
