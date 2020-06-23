@@ -3,9 +3,6 @@ package com.example.dell.big_wanandroid.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.dell.big_wanandroid.R;
 import com.example.dell.big_wanandroid.base.BaseFragment;
@@ -19,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by Dell on 2019/4/26.
@@ -54,6 +49,10 @@ public class CrossFragment extends BaseFragment<CorssP, CrossV> implements Cross
 
     }
 
+    /**
+     * 响应数据并传递tab---id 到子fragment中
+     * @param bean
+     */
     @Override
     public void onSuccess(WechatTabBean bean) {
         List<WechatTabBean.DataBean> list = bean.getData();

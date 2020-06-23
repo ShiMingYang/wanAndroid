@@ -44,7 +44,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (position == 0) {//增加头布局banner
             return 0;
         } else {
             return 1;
@@ -106,6 +106,8 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
             }else {
                 holder1.mTag.setVisibility(View.GONE);
             }
+
+            //此处是为了 界面点击收藏变换图标同时添加数据库
             person = new Person();
             person.setId(null);
             person.setAuthor(bean.getAuthor());
@@ -168,7 +170,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
     }
 
 
-
+        //接口回调 item的点击事件
      public interface OnItemClickLisener{
              void OnItemClickLisener(int position);
           }
@@ -186,7 +188,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
               this.mbanClickLisener = banClickLisener;
           }
 
-    public void setlistData(ListBean cc) {
+    public void setlistData(ListBean cc) {//拿到响应的数据进行设置到界面
         list.addAll(cc.getData().getDatas());
         notifyDataSetChanged();
     }

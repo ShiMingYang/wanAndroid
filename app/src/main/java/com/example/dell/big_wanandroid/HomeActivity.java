@@ -132,6 +132,7 @@ public class HomeActivity extends BaseActivity<EmapyP, EmapyV> implements EmapyV
         mTv.setText(R.string.home);
     }
 
+      //回调注册的数据
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -142,7 +143,7 @@ public class HomeActivity extends BaseActivity<EmapyP, EmapyV> implements EmapyV
 
         }
     }
-
+    //三方回调的登录信息
     @Subscribe(threadMode = ThreadMode.MAIN)
       public void getlogindata(Map<String, String> data){
 
@@ -180,10 +181,11 @@ public class HomeActivity extends BaseActivity<EmapyP, EmapyV> implements EmapyV
         initFragment();
 
 
-        mToolbar.setTitle("");
+        mToolbar.setTitle("");//使用自己写的ToolBar 隐藏到系统的
         setSupportActionBar(mToolbar);
         mNv.setItemIconTintList(null);
 
+         //侧滑
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDl, mToolbar, R.string.app_name, R.string.app_name);
         mDl.addDrawerListener(toggle);
         toggle.syncState();
@@ -246,7 +248,7 @@ public class HomeActivity extends BaseActivity<EmapyP, EmapyV> implements EmapyV
                 startActivityForResult(intent, 100);
             }
         });
-
+        //侧滑的点击item事件
         mNv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

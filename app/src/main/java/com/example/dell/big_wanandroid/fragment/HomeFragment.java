@@ -71,10 +71,11 @@ public class HomeFragment extends BaseFragment<HomeP, HomeView> implements HomeV
         adapter = new HomeXlvAdapter(getContext(), list, banbeans);
         rlv.setAdapter(adapter);
 
+         //下拉时候隐藏导航栏
         final RadioGroup rgbtn = getActivity().findViewById(R.id.rg);
         RlvHideUtils.Hide(rgbtn, rlv, flbtn);
         RlvHideUtils.OnClicks(flbtn, rlv);
-
+        //上拉刷新下拉加载更多
         smr.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -110,7 +111,7 @@ public class HomeFragment extends BaseFragment<HomeP, HomeView> implements HomeV
 
         adapter.SetOnItemClickLisener(new HomeXlvAdapter.OnItemClickLisener() {
             @Override
-            public void OnItemClickLisener(int position) {
+            public void OnItemClickLisener(int position) {//传递数据展示到webview界面
                 Intent intent = new Intent(getContext(), HomeWebActivity.class);
                 intent.putExtra("link", list.get(position).getLink());
                 intent.putExtra("titles", list.get(position).getTitle());
