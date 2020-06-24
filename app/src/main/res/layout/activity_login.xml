@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_marginTop="@dimen/dp_80"
             android:drawableLeft="@mipmap/d"
             android:hint="请输入用户名"/>
         <EditText
@@ -57,25 +58,27 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="80dp"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:text="@string/login"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="或"
+            android:text=""
             android:textSize="21sp"/>
         <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:text="@string/register"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
