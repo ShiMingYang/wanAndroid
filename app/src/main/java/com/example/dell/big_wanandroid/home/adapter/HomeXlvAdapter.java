@@ -66,7 +66,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         int viewType = getItemViewType(position);
-        if (viewType==0) {
+        if (viewType == 0) {
             final BanViewHolder holder1 = (BanViewHolder) holder;
             holder1.mBanner.setImages(banbeans).setImageLoader(new ImageLoader() {
                 @Override
@@ -79,31 +79,31 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
             holder1.mBanner.setOnBannerListener(new OnBannerListener() {
                 @Override
                 public void OnBannerClick(int position) {
-                    if(mbanClickLisener!=null){
+                    if (mbanClickLisener != null) {
                         mbanClickLisener.OnItemBanClickLisener(position);
                     }
                 }
             });
-        }else {
-             int newposition=position;
-            if (banbeans.size()>0) {
-                newposition=position-1;
+        } else {
+            int newposition = position;
+            if (banbeans.size() > 0) {
+                newposition = position - 1;
             }
             ListViewHolder holder1 = (ListViewHolder) holder;
             bean = list.get(newposition);
             holder1.mAuthor.setText(list.get(newposition).getAuthor());
-            holder1.mPlatform.setText(list.get(newposition).getSuperChapterName()+"/"+list.get(newposition).getChapterName());
+            holder1.mPlatform.setText(list.get(newposition).getSuperChapterName() + "/" + list.get(newposition).getChapterName());
             holder1.title.setText(list.get(newposition).getTitle());
             holder1.mTime.setText(list.get(newposition).getNiceDate());
 
             if (bean.isFresh()) {
                 holder1.mNews.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 holder1.mNews.setVisibility(View.GONE);
             }
-            if (bean.getTags().size()>0) {
+            if (bean.getTags().size() > 0) {
                 holder1.mTag.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 holder1.mTag.setVisibility(View.GONE);
             }
 
@@ -115,10 +115,10 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
             person.setNiceDate(bean.getNiceDate());
             person.setTitle(bean.getTitle());
             Person queryData = UtilsDao.getUtilsDao().queryData(person);
-            if (queryData==null) {
+            if (queryData == null) {
                 holder1.mXinImg.setImageResource(R.mipmap.follow_unselected);
 //
-            }else {
+            } else {
                 holder1.mXinImg.setImageResource(R.mipmap.follow);
             }
 
@@ -133,12 +133,12 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
                     person.setTitle(bean.getTitle());
 
                     Person queryData = UtilsDao.getUtilsDao().queryData(person);
-                    if (queryData==null) {
+                    if (queryData == null) {
                         UtilsDao.getUtilsDao().inser(person);
                         holder1.mXinImg.setImageResource(R.mipmap.follow);
                         ToastUtil.showShort("收藏成功");
 //
-                    }else {
+                    } else {
                         UtilsDao.getUtilsDao().deletes(queryData);
                         holder1.mXinImg.setImageResource(R.mipmap.follow_unselected);
                         ToastUtil.showShort("取消收藏");
@@ -150,7 +150,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
             holder1.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mlisener!=null) {
+                    if (mlisener != null) {
                         mlisener.OnItemClickLisener(finalNewposition);
                     }
                 }
@@ -170,23 +170,23 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
     }
 
 
-        //接口回调 item的点击事件
-     public interface OnItemClickLisener{
-             void OnItemClickLisener(int position);
-          }
+    //接口回调 item的点击事件
+    public interface OnItemClickLisener {
+        void OnItemClickLisener(int position);
+    }
 
-          public void SetOnItemClickLisener(OnItemClickLisener lisener){
-              mlisener = lisener;
-          }
+    public void SetOnItemClickLisener(OnItemClickLisener lisener) {
+        mlisener = lisener;
+    }
 
-          public interface OnItemBanClickLisener{
-             void OnItemBanClickLisener(int position);
-          }
+    public interface OnItemBanClickLisener {
+        void OnItemBanClickLisener(int position);
+    }
 
-          public void SetOnItemBanClickLisener(OnItemBanClickLisener banClickLisener){
+    public void SetOnItemBanClickLisener(OnItemBanClickLisener banClickLisener) {
 
-              this.mbanClickLisener = banClickLisener;
-          }
+        this.mbanClickLisener = banClickLisener;
+    }
 
     public void setlistData(ListBean cc) {//拿到响应的数据进行设置到界面
         list.addAll(cc.getData().getDatas());
@@ -203,12 +203,13 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
         TextView mAuthor;
         TextView mPlatform;
         ImageView mXinImg;
-//        ImageView mredxin_img;
+        //        ImageView mredxin_img;
         ImageView mShizhongImg;
         TextView title;
         TextView mTime;
         TextView mNews;
         TextView mTag;
+
         public ListViewHolder(View itemView) {
             super(itemView);
             this.mImg = (ImageView) itemView.findViewById(R.id.img);
@@ -225,7 +226,7 @@ public class HomeXlvAdapter extends RecyclerView.Adapter {
 
     }
 
-    class BanViewHolder extends  RecyclerView.ViewHolder {
+    class BanViewHolder extends RecyclerView.ViewHolder {
         Banner mBanner;
 
         public BanViewHolder(View itemView) {

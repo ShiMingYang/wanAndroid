@@ -10,4 +10,6 @@ import com.example.dell.big_wanandroid.base.BaseView;
 public interface ProjectView extends BaseView {
 
     void SetTabData(TabBeanP tabBeanP);
+
+    void SetOnFail(String msg);
 }

@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.dell.big_wanandroid.Project.adapter.VpAdapterP;
@@ -16,13 +13,12 @@ import com.example.dell.big_wanandroid.Project.presenter.ProjectP;
 import com.example.dell.big_wanandroid.Project.view.ProjectView;
 import com.example.dell.big_wanandroid.R;
 import com.example.dell.big_wanandroid.base.BaseFragment;
+import com.example.dell.big_wanandroid.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by Dell on 2019/4/26.
@@ -80,7 +76,10 @@ public class ProjectFragment extends BaseFragment<ProjectP, ProjectView> impleme
         tab.setupWithViewPager(vp);
     }
 
-
+    @Override
+    public void SetOnFail(String msg) {
+        ToastUtil.showShort(msg);
+    }
 
 
 }

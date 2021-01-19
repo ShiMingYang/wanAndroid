@@ -2,6 +2,7 @@ package com.example.dell.big_wanandroid.Project.model;
 
 import com.example.dell.big_wanandroid.Project.bean.TabBeanP;
 import com.example.dell.big_wanandroid.api.MyServer;
+import com.example.dell.big_wanandroid.httpUtils.ResultCallBack;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -21,7 +22,7 @@ public class ProjectM {
     public interface CallBackP{
         void getData(TabBeanP tabBeanP);
     }
-    public void getTabData(final CallBackP callBackP) {
+    public void getTabData(final ResultCallBack<TabBeanP> resultCallBack ) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(MyServer.homeUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -38,7 +39,7 @@ public class ProjectM {
 
                     @Override
                     public void onNext(TabBeanP tabBeanP) {
-                        callBackP.getData(tabBeanP);
+                        resultCallBack.onSuccess(tabBeanP);
                     }
 
                     @Override

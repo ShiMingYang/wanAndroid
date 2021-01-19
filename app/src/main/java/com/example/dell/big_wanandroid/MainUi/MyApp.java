@@ -12,8 +12,6 @@ import com.example.dell.big_wanandroid.utils.CommonUtils;
 import com.example.dell.big_wanandroid.utils.Constants;
 import com.example.dell.big_wanandroid.utils.SpUtil;
 import com.example.dell.big_wanandroid.utils.UIModeUtil;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
@@ -31,7 +29,7 @@ public class MyApp extends MultiDexApplication {
     public static int mHeightPixels;
 
     //修复内存泄漏
-    private RefWatcher refWatcher;
+//    private RefWatcher refWatcher;
 
 
     @Override
@@ -59,11 +57,11 @@ public class MyApp extends MultiDexApplication {
                 "http://sns.whalecloud.com");
 //        PlatformConfig.setYixin("yxc0614e80c9304c11b0391514d09f13bf");
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
-        //检测内存泄漏
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
-        LeakCanary.install(this);
+//        //检测内存泄漏
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return;
+//        }
+//        LeakCanary.install(this);
 
 
 
@@ -80,10 +78,10 @@ public class MyApp extends MultiDexApplication {
 
 
     //修复内存泄漏
-    public static RefWatcher getRefWatcher(Context context) {
-        MyApp applicationContext = (MyApp) context.getApplicationContext();
-        return applicationContext.refWatcher;
-    }
+//    public static RefWatcher getRefWatcher(Context context) {
+//        MyApp applicationContext = (MyApp) context.getApplicationContext();
+//        return applicationContext.refWatcher;
+//    }
 
     public static MyApp getsMyApp() {
         return sMyApp;

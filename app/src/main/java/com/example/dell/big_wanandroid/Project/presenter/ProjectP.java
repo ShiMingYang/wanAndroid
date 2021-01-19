@@ -4,6 +4,7 @@ import com.example.dell.big_wanandroid.Project.bean.TabBeanP;
 import com.example.dell.big_wanandroid.Project.model.ProjectM;
 import com.example.dell.big_wanandroid.Project.view.ProjectView;
 import com.example.dell.big_wanandroid.base.BasePresenter;
+import com.example.dell.big_wanandroid.httpUtils.ResultCallBack;
 
 /**
  * Created by Dell on 2019/4/29.
@@ -19,10 +20,15 @@ public class ProjectP extends BasePresenter<ProjectView> {
     }
 
     public void getTabData() {
-       projectM.getTabData(new ProjectM.CallBackP() {
+       projectM.getTabData(new ResultCallBack<TabBeanP>() {
            @Override
-           public void getData(TabBeanP tabBeanP) {
-               mView.SetTabData(tabBeanP);
+           public void onSuccess(TabBeanP bean) {
+               mView.SetTabData(bean);
+           }
+
+           @Override
+           public void onFail(String msg) {
+                mView.SetOnFail(msg);
            }
        });
     }

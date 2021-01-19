@@ -1,23 +1,12 @@
 package com.example.dell.big_wanandroid.utils;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 
-import com.example.dell.big_wanandroid.R;
-import com.flyco.tablayout.SlidingTabLayout;
-
-import butterknife.OnClick;
 import q.rorbin.verticaltablayout.VerticalTabLayout;
 
 /**
@@ -46,6 +35,7 @@ public class RlvHideUtils {
 
             }
 
+            @SuppressLint("RestrictedApi")
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -97,6 +87,7 @@ dy < 0 时为手指向下滚动,列表滚动显示上面的内容*/
 
             }
 
+            @SuppressLint("RestrictedApi")
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -150,6 +141,7 @@ dy < 0 时为手指向下滚动,列表滚动显示上面的内容*/
                 tabLayout.setTabSelected(top);
             }
 
+            @SuppressLint("RestrictedApi")
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
